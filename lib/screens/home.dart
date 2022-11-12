@@ -22,7 +22,7 @@ class HomeState extends State<Home> {
                 child: const Text("Register")),
             TextButton(
                 onPressed: null,
-                style: TextButton.styleFrom(foregroundColor: Colors.purple),
+                style: TextButton.styleFrom(foregroundColor: Colors.black),
                 child: const Text("Login")),
           ]),
     );

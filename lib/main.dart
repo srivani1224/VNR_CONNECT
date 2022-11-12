@@ -13,13 +13,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'vnr connect',
-      home: My_App(),
+      home: MyAppScreen(),
     );
   }
 }
 
-class My_App extends StatelessWidget {
-  const My_App({super.key});
+class MyAppScreen extends StatelessWidget {
+  const MyAppScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class My_App extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Home()),
+                  MaterialPageRoute(builder: (context) => const Home()),
                 );
               },
               style: TextButton.styleFrom(
