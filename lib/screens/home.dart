@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,19 +13,61 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          //backgroundColor: Colors.lightBlueAccent,
+          backgroundColor: Colors.lightBlueAccent,
           title: const Text('VNR CONNECT'),
           centerTitle: true,
-          actions: [
+          actions: const [
             TextButton(
                 onPressed: null,
-                style: TextButton.styleFrom(foregroundColor: Colors.black),
-                child: const Text("Register")),
+                child: Text("Register",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ))),
             TextButton(
                 onPressed: null,
-                style: TextButton.styleFrom(foregroundColor: Colors.black),
-                child: const Text("Login")),
+                child: Text("Login",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ))),
           ]),
+      body: Center(
+        child: Container(
+          alignment: Alignment.center,
+          child: Column(
+            children: const <Widget>[
+              //Carousel(),
+              SizedBox(
+                width: 300,
+                height: 200,
+              ),
+              Card(
+                  color: Colors.lightBlueAccent,
+                  margin: EdgeInsets.all(20),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 100, vertical: 40),
+                    child: Text("Clutural clubs"),
+                  )),
+              Card(
+                color: Colors.lightBlueAccent,
+                margin: EdgeInsets.all(20),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 40),
+                  child: Text("Clutural clubs"),
+                ),
+              ),
+              Card(
+                color: Colors.lightBlueAccent,
+                margin: EdgeInsets.all(20),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 40),
+                  child: Text("Clutural clubs"),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
