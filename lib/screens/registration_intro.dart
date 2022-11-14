@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:vnr_connect/screens/login_intro.dart';
+import 'package:vnr_connect/screens/registration_form.dart';
+import 'package:vnr_connect/screens/registration_form_head.dart';
 
 class RegistrationIntro extends StatefulWidget {
   const RegistrationIntro({super.key});
@@ -50,7 +52,13 @@ class RegistrationIntroState extends State<RegistrationIntro> {
             child: Column(
               children: <Widget>[
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegistrationFormHead()),
+                    );
+                  },
                   child: const Card(
                       color: Colors.lightBlueAccent,
                       margin: EdgeInsets.all(20),
@@ -61,7 +69,13 @@ class RegistrationIntroState extends State<RegistrationIntro> {
                       )),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegistrationForm()),
+                    );
+                  },
                   child: const Card(
                       color: Colors.lightBlueAccent,
                       margin: EdgeInsets.all(20),
