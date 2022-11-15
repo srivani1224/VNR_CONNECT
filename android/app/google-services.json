@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "781890615096",
+    "project_id": "vnr-connect-3ec78",
+    "storage_bucket": "vnr-connect-3ec78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781890615096:android:966bbafc71f5ad2277f3cd",
+        "android_client_info": {
+          "package_name": "com.vvsr.vnr_connect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781890615096-rl4su2mppmtomhhf7dhrvh2fht5tc2j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7fCFs6bVT7GEPyc9YXJK13VtI1jwjois"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781890615096-rl4su2mppmtomhhf7dhrvh2fht5tc2j5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

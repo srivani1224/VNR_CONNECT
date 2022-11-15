@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:vnr_connect/screens/fests.dart';
 import 'package:vnr_connect/screens/login_intro.dart';
 import 'package:vnr_connect/screens/registration_intro.dart';
 
@@ -98,7 +99,10 @@ class HomeState extends State<Home> {
                       )),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Fests()),
+                    );
+                  },
                   child: Card(
                       color: Colors.lightBlueAccent,
                       margin: EdgeInsets.all(20),
