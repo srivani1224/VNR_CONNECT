@@ -60,6 +60,7 @@ class HomeState extends State<Home> {
                 CarouselSlider(
                   items: imgList
                       .map((item) => Container(
+                            padding: EdgeInsets.all(5),
                             child: Center(
                               child: Image.network(
                                 item,

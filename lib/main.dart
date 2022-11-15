@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vnr_connect/screens/home.dart';
+import 'package:vnr_connect/screens/clubs/after_login_vnr_student/home_clubs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +41,7 @@ class MyAppScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Home()),
+                  MaterialPageRoute(builder: (context) => const HomeClubs()),
                 );
               },
               style: TextButton.styleFrom(
