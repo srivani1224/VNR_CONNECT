@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vnr_connect/screens/clubs/after_login_vnr_student/home_clubs.dart';
+import 'package:vnr_connect/screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'vnr connect',
-      home: Home(),
+      home: MyAppScreen(),
     );
   }
 }
@@ -41,7 +41,7 @@ class MyAppScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeClubs()),
+                  MaterialPageRoute(builder: (context) => const Home()),
                 );
               },
               style: TextButton.styleFrom(
