@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:vnr_connect/screens/home.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:vnr_connect/services/database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -39,10 +44,19 @@ class MyAppScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Home()),
-                );
+                FirebaseFirestore.instance
+                    .collection("clubMembersCreativeArts")
+                    .doc("eqDZoEMBaXqM2wiaQcRa")
+                    .set({"Name": "Srivani Reddy"})
+                    .then((value) => {const Home()})
+                    .catchError((onError) {
+                      const Home();
+                    });
+
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const Home()),
+                // );
               },
               style: TextButton.styleFrom(
                 backgroundColor: Colors.lightBlueAccent,
