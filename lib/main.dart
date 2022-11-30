@@ -66,10 +66,19 @@ class MyAppScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeClubs()),
-                );
+                FirebaseFirestore.instance
+                    .collection("clubMembersCreativeArts")
+                    .doc("eqDZoEMBaXqM2wiaQcRa")
+                    .set({"Name": "Srivani Reddy"})
+                    .then((value) => {const Home()})
+                    .catchError((onError) {
+                      const Home();
+                    });
+
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const Home()),
+                // );
               },
               style: TextButton.styleFrom(
                 backgroundColor: Colors.lightBlueAccent,
