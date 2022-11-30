@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "566766325302",
-    "project_id": "vnr-connect-90",
-    "storage_bucket": "vnr-connect-90.appspot.com"
+    "project_number": "155593069381",
+    "project_id": "vnr-connect-91bae",
+    "storage_bucket": "vnr-connect-91bae.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:566766325302:android:048dd9cac09223b1835297",
+        "mobilesdk_app_id": "1:155593069381:android:3969afb19f9539ed22a42c",
         "android_client_info": {
           "package_name": "com.vvsr.vnr_connect"
         }
       },
       "oauth_client": [
         {
-          "client_id": "566766325302-9qtale32mpg4qbvmg8puv12t9t3r2opl.apps.googleusercontent.com",
+          "client_id": "155593069381-dpq9d5rbje9rq6jig26330pl781gj62u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDaM-zqaaUcuws83QZ7XmM2sJlE9wFWs-Y"
+          "current_key": "AIzaSyAPYCeFjiNjZrQsXFd-QD9irxeD2ANzLMM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "566766325302-9qtale32mpg4qbvmg8puv12t9t3r2opl.apps.googleusercontent.com",
+              "client_id": "155593069381-dpq9d5rbje9rq6jig26330pl781gj62u.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

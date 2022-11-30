@@ -1,25 +1,47 @@
-import 'package:flutter/material.dart';
-import 'package:vnr_connect/screens/home.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:vnr_connect/services/database.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future main() async {
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:vnr_connect/screens/clubs/after_login_vnr_student/home_clubs.dart';
+import 'package:vnr_connect/screens/login_form.dart';
+
+
+void main(){  
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  MyApp({super.key});
+final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    return FutureBuilder(
+      future: _initialization ,
+      builder: (context,snapshot){
+        if(snapshot.connectionState==ConnectionState.waiting)
+        {
+          return MaterialApp(
+            home: Scaffold(appBar:AppBar(
+              title: const Text("VNR CONNECT"),
+            )),
+          );
+        }
+    else if(snapshot.hasError)
+    {
+      return MaterialApp(
+        home: Scaffold(appBar: AppBar(title: const Text("error"),
+        )),
+      );
+    }
+    
     return const MaterialApp(
       title: 'vnr connect',
-      home: MyAppScreen(),
+      home: LoginForm(),
     );
+    });
   }
 }
 
