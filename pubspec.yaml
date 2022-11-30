@@ -31,6 +31,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  firebase_core: ^2.3.0
+  firebase_auth: ^4.1.4
 
   carousel_slider: ^4.1.1
   reflectable: any

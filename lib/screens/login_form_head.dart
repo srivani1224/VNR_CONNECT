@@ -47,9 +47,9 @@ class LoginFormHeadState extends State<LoginFormHead> {
                         color: Colors.white,
                       ))),
             ]),
-        body: Container(
+        body: SizedBox(
           width: 570,
-          margin: EdgeInsets.symmetric(horizontal: 400, vertical: 100),
+        //  margin: EdgeInsets.symmetric(horizontal: 400, vertical: 100),
           child: Form(
             key: _loginFormHeadKey,
             child: Column(children: <Widget>[
