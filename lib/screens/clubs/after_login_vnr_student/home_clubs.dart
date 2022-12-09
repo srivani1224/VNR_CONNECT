@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:vnr_connect/data_models/clubs_model.dart';
+import 'package:vnr_connect/models/clubs_model.dart';
 import 'package:vnr_connect/providers/provider_club.dart';
 
 class HomeClubs extends StatefulWidget {
@@ -28,6 +28,7 @@ class HomeClubState extends State<HomeClubs> {
 
   @override
   Widget build(BuildContext context) {
+    print("hi");
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.lightBlueAccent,
@@ -73,8 +74,8 @@ class HomeClubState extends State<HomeClubs> {
                         },
                         child: Container(
                           color: Colors.lightBlueAccent,
-                          margin: EdgeInsets.symmetric(
-                              horizontal: 500, vertical: 10),
+                          margin:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           height: 100,
                           child: Center(child: Text(_items[index].clubName)),
                         ),

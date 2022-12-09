@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_events.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_joining_requests.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_members.dart';
+import 'package:vnr_connect/services/database.dart';
 
 class CreativeArtsHeads extends StatefulWidget {
   const CreativeArtsHeads({super.key});
@@ -16,28 +17,6 @@ class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.lightBlueAccent,
-          title: const Text('VNR CONNECT'),
-          centerTitle: true,
-          actions: [
-            TextButton.icon(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-              ),
-              icon: Icon(Icons.logout),
-              label: Text("Logout"),
-              onPressed: () {},
-            ),
-            TextButton.icon(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-              ),
-              icon: Icon(Icons.person),
-              label: Text("Profile"),
-              onPressed: () {},
-            ),
-          ]),
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
@@ -105,7 +84,16 @@ class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
           ],
         ),
       ),
-      body: Center(),
+      body: Center(
+          child: ElevatedButton(
+        onPressed: () {
+          DataBase().insertDataIntoDatabase();
+        },
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.lightBlueAccent,
+        ),
+        child: const Text("Explore"),
+      )),
     );
   }
 }

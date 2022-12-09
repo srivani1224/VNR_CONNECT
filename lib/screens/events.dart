@@ -1,20 +1,30 @@
 import "package:flutter/material.dart";
-import 'package:vnr_connect/models/eventsmodel.dart';
+import 'package:vnr_connect/models/events_model.dart';
 import 'package:vnr_connect/screens/fests.dart';
 
 class Events extends StatelessWidget {
-final List<Event> events = [Event(imageUrl:"https://wallpapercave.com/wp/wp2349410.jpg",name: "Event 1"),
-Event(imageUrl:"https://wallpapercave.com/wp/wp2349410.jpg",name: "Event 1"),
-Event(imageUrl:"https://wallpapercave.com/wp/wp2349410.jpg",name: "Event 1"),
-Event(imageUrl:"https://wallpapercave.com/wp/wp2349410.jpg",name: "Event 1"),
-Event(imageUrl:"https://wallpapercave.com/wp/wp2349410.jpg",name: "Event 1")];
+  final List<Event> events = [
+    Event(
+        imageUrl: "https://wallpapercave.com/wp/wp2349410.jpg",
+        name: "Event 1"),
+    Event(
+        imageUrl: "https://wallpapercave.com/wp/wp2349410.jpg",
+        name: "Event 1"),
+    Event(
+        imageUrl: "https://wallpapercave.com/wp/wp2349410.jpg",
+        name: "Event 1"),
+    Event(
+        imageUrl: "https://wallpapercave.com/wp/wp2349410.jpg",
+        name: "Event 1"),
+    Event(
+        imageUrl: "https://wallpapercave.com/wp/wp2349410.jpg", name: "Event 1")
+  ];
 
- Events({super.key});
- 
+  Events({super.key});
+
   @override
   Widget build(BuildContext context) {
-    
-Widget eventTemplate(event) {
+    Widget eventTemplate(event) {
       return Card(
         margin: const EdgeInsets.fromLTRB(25.0, 15.5, 25.0, 15.5),
         elevation: 5.0,
@@ -44,8 +54,7 @@ Widget eventTemplate(event) {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const Fests()),
+                    MaterialPageRoute(builder: (context) => const Fests()),
                   );
                 },
                 style: TextButton.styleFrom(
@@ -61,9 +70,10 @@ Widget eventTemplate(event) {
         ),
       );
     }
- 
-    return  Center(
-      child: Column(children:events.map((event) => eventTemplate(event)).toList()),
+
+    return Center(
+      child: Column(
+          children: events.map((event) => eventTemplate(event)).toList()),
     );
   }
 }

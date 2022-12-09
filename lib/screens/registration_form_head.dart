@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:vnr_connect/data_models/checkbox_model.dart';
+import 'package:vnr_connect/models/checkbox_model.dart';
 import 'package:vnr_connect/screens/login_intro.dart';
 import 'package:vnr_connect/screens/registration_intro.dart';
 

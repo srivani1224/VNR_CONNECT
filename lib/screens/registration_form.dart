@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:vnr_connect/screens/login_intro.dart';
 import 'package:vnr_connect/screens/registration_intro.dart';
-import 'package:vnr_connect/service/authenticate.dart';
+import 'package:vnr_connect/services/authenticate.dart';
 import 'package:vnr_connect/screens/home.dart';
 
 class RegistrationForm extends StatefulWidget {
@@ -15,12 +15,11 @@ class RegistrationForm extends StatefulWidget {
 
 class RegistrationFormState extends State<RegistrationForm> {
   final _registrationFormKey = GlobalKey<FormState>();
-  TextEditingController email=TextEditingController();
-  TextEditingController password=TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     createDialogBox(BuildContext context) {
       return showDialog(
           context: context,
@@ -37,7 +36,6 @@ class RegistrationFormState extends State<RegistrationForm> {
             );
           });
     }
-
 
     return Scaffold(
         appBar: AppBar(
@@ -73,13 +71,13 @@ class RegistrationFormState extends State<RegistrationForm> {
         body: Center(
           child: SizedBox(
             width: 570,
-           // margin: EdgeInsets.symmetric(horizontal: 400, vertical: 100),
+            // margin: EdgeInsets.symmetric(horizontal: 400, vertical: 100),
             child: Form(
               key: _registrationFormKey,
               child: Center(
                 child: Column(children: <Widget>[
                   TextFormField(
-                    controller:email,
+                    controller: email,
                     decoration: const InputDecoration(
                         icon: Icon(Icons.email),
                         hintText: 'Enter your college Email ID',
@@ -92,7 +90,7 @@ class RegistrationFormState extends State<RegistrationForm> {
                         labelText: 'Name'),
                   ),
                   TextFormField(
-                    controller:password,
+                    controller: password,
                     decoration: const InputDecoration(
                         icon: Icon(Icons.password),
                         hintText: 'Enter your Password',
@@ -104,7 +102,7 @@ class RegistrationFormState extends State<RegistrationForm> {
                       style: TextButton.styleFrom(
                         backgroundColor: Colors.lightBlueAccent,
                       ),
-                      onPressed:  () async {
+                      onPressed: () async {
                         dynamic result = await AuthService()
                             .registerWithEmailAndPass(
                                 email.text, password.text);
@@ -128,8 +126,6 @@ class RegistrationFormState extends State<RegistrationForm> {
                       ),
                     ),
                   ),
-                  
-                
                 ]),
               ),
             ),

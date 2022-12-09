@@ -5,7 +5,7 @@ import 'package:vnr_connect/screens/home.dart';
 import 'package:vnr_connect/screens/login_intro.dart';
 import 'package:vnr_connect/screens/registration_form.dart';
 import 'package:vnr_connect/screens/registration_intro.dart';
-import 'package:vnr_connect/service/authenticate.dart';
+import 'package:vnr_connect/services/authenticate.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -16,8 +16,8 @@ class LoginForm extends StatefulWidget {
 
 class LoginFormState extends State<LoginForm> {
   final _loginFormKey = GlobalKey<FormState>();
-TextEditingController email=TextEditingController();
-TextEditingController password = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -78,12 +78,14 @@ TextEditingController password = TextEditingController();
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.lightBlueAccent,
                   ),
-                  onPressed: ()async {
-                    dynamic result=await AuthService().signInWithEmailAndPassword(email.text, password.text);
-                    if(result){
-                      if(!mounted) return;
+                  onPressed: () async {
+                    dynamic result = await AuthService()
+                        .signInWithEmailAndPassword(email.text, password.text);
+                    if (result) {
+                      if (!mounted) return;
                       Navigator.of(context).pop();
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Home()));
                     }
                   },
                   child: Text(
