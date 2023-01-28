@@ -28,7 +28,6 @@ class HomeClubState extends State<HomeClubs> {
 
   @override
   Widget build(BuildContext context) {
-    print("hi");
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.lightBlueAccent,

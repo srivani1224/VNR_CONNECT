@@ -1,31 +1,22 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:vnr_connect/models/heads_model.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_events.dart';
+import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_heads.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_joining_requests.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_members.dart';
-import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_view_head.dart';
-import 'package:vnr_connect/services/database.dart';
 
-class CreativeArtsHeads extends StatefulWidget {
-  const CreativeArtsHeads({super.key});
+class CreativeArtsViewHead extends StatefulWidget {
+  const CreativeArtsViewHead({super.key});
 
   @override
-  CreativeArtsHeadsState createState() => CreativeArtsHeadsState();
+  CreativeArtsViewHeadState createState() => CreativeArtsViewHeadState();
 }
 
-class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
-  final Stream<List<Head>> _items = DataBase().getHeads("CreativeArts");
-  // final List<Head> _x = _items.listen(listOfHeads) {
-  //   for (Head head in listOfHeads)
-  //     _y.add(head);
-  // };
-
-  final numHeads = DataBase().countHeads("CreativeArts");
-
+class CreativeArtsViewHeadState extends State<CreativeArtsViewHead> {
   @override
   Widget build(BuildContext context) {
+    print("view head");
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.lightBlueAccent,
@@ -116,35 +107,27 @@ class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
           ],
         ),
       ),
-      body: Center(
-        child: Container(
-          alignment: Alignment.center,
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => CreativeArtsViewHead()),
-                          );
-                        },
-                        child: Container(
-                          color: Colors.lightBlueAccent,
-                          margin:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                          height: 100,
-                          child: Text("Hi"),
-                        ),
-                      );
-                    }),
-              ],
-            ),
+      body: Container(
+        margin: EdgeInsets.symmetric(horizontal: 200, vertical: 75),
+        width: 900,
+        height: 500,
+        padding: EdgeInsets.symmetric(horizontal: 300, vertical: 20),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text("Description goes here..."),
+              SizedBox(
+                width: 20,
+                height: 20,
+              ),
+              TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.lightBlueAccent,
+                  ),
+                  onPressed: () {},
+                  child: Text("Edit")),
+            ],
           ),
         ),
       ),
