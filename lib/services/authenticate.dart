@@ -62,7 +62,9 @@ Future<bool> signInWithEmailAndPassword(email, password) async {
     }
   }
 
-
+ Future<void> signOut() async{
+  await FirebaseAuth.instance.signOut();
+ }
 
 
 }
