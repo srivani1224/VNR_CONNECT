@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:vnr_connect/models/clubs_model.dart';
 import 'package:vnr_connect/providers/provider_club.dart';
+import 'package:vnr_connect/screens/login_form.dart';
+import 'package:vnr_connect/services/authenticate.dart';
 
 class HomeClubs extends StatefulWidget {
   const HomeClubs({super.key});
@@ -40,7 +42,13 @@ class HomeClubState extends State<HomeClubs> {
               ),
               icon: Icon(Icons.logout),
               label: Text("Logout"),
-              onPressed: () {},
+              onPressed: () async {
+                await AuthService().signOut();
+                if (!mounted) return;
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => LoginForm()),
+                    (Route route) => false);
+              },
             ),
             TextButton.icon(
               style: TextButton.styleFrom(

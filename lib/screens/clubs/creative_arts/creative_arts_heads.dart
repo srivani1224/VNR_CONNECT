@@ -1,12 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:vnr_connect/models/heads_model.dart';
+//import 'package:vnr_connect/models/heads_model.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_events.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_joining_requests.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_members.dart';
 import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_view_head.dart';
 import 'package:vnr_connect/services/database.dart';
+
 
 class CreativeArtsHeads extends StatefulWidget {
   const CreativeArtsHeads({super.key});
@@ -16,11 +17,17 @@ class CreativeArtsHeads extends StatefulWidget {
 }
 
 class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
-  final Stream<List<Head>> _items = DataBase().getHeads("CreativeArts");
-  // final List<Head> _x = _items.listen(listOfHeads) {
-  //   for (Head head in listOfHeads)
-  //     _y.add(head);
-  // };
+//       final Stream<List<Head>> _items = DataBase().getHeads("CreativeArts");
+//       late List<Head> _y;
+//  CreativeArtsHeads(){
+// _items.listen((listOfHeads) {
+//       for (Head head in listOfHeads) {
+//         _y.add(head);
+//       }
+//     });
+//}
+
+      
 
   final numHeads = DataBase().countHeads("CreativeArts");
 
@@ -38,7 +45,9 @@ class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
               ),
               icon: Icon(Icons.logout),
               label: Text("Logout"),
-              onPressed: () {},
+              onPressed: (){
+
+              },
             ),
             TextButton.icon(
               style: TextButton.styleFrom(
