@@ -2,28 +2,26 @@
 
 import 'package:flutter/material.dart';
 import 'package:vnr_connect/models/heads_model.dart';
-import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_events.dart';
-import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_joining_requests.dart';
-import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_members.dart';
-import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_view_head.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_vnr_student/home_clubs.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/desc.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/events.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/joining_requests.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/members.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/view_head.dart';
 import 'package:vnr_connect/services/database.dart';
 
-class CreativeArtsHeads extends StatefulWidget {
-  const CreativeArtsHeads({super.key});
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class Heads extends StatefulWidget {
+  final String path;
+  const Heads(this.path, {super.key});
 
   @override
-  CreativeArtsHeadsState createState() => CreativeArtsHeadsState();
+  HeadsState createState() => HeadsState();
 }
 
-class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
-  final Stream<List<Head>> _items = DataBase().getHeads("CreativeArts");
-  // final List<Head> _x = _items.listen(listOfHeads) {
-  //   for (Head head in listOfHeads)
-  //     _y.add(head);
-  // };
-
-  final numHeads = DataBase().countHeads("CreativeArts");
-
+class HeadsState extends State<Heads> {
+  String get path => widget.path;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,8 +66,7 @@ class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const CreativeArtsEvents()),
+                  MaterialPageRoute(builder: (context) => Events(path)),
                 );
               },
             ),
@@ -81,8 +78,7 @@ class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const CreativeArtsHeads()),
+                  MaterialPageRoute(builder: (context) => Heads(path)),
                 );
               },
             ),
@@ -94,8 +90,7 @@ class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const CreativeArtsMembers()),
+                  MaterialPageRoute(builder: (context) => Members(path)),
                 );
               },
             ),
@@ -108,45 +103,45 @@ class CreativeArtsHeadsState extends State<CreativeArtsHeads> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          const CreativeArtsJoiningRequests()),
+                      builder: (context) => JoiningRequests(path)),
                 );
               },
             ),
           ],
         ),
       ),
-      body: Center(
-        child: Container(
-          alignment: Alignment.center,
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => CreativeArtsViewHead()),
-                          );
-                        },
-                        child: Container(
-                          color: Colors.lightBlueAccent,
-                          margin:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                          height: 100,
-                          child: Text("Hi"),
-                        ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream:
+            FirebaseFirestore.instance.collection(path + "/Heads").snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: snapshot.data!.docs.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                ViewHead(path, snapshot.data!.docs[index])),
                       );
-                    }),
-              ],
-            ),
-          ),
-        ),
+                    },
+                    child: Container(
+                      color: Colors.lightBlueAccent,
+                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      height: 100,
+                      child: Center(
+                          child: Text(snapshot.data!.docs[index].get('Name'))),
+                    ),
+                  );
+                });
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        },
       ),
     );
   }

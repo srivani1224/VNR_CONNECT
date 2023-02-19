@@ -2,14 +2,15 @@
 
 import 'package:flutter/material.dart';
 
-class DramatrixDesc extends StatefulWidget {
-  const DramatrixDesc({super.key});
+class JoiningRequests extends StatefulWidget {
+  final String path;
+  const JoiningRequests(this.path, {super.key});
 
   @override
-  DramatrixDescState createState() => DramatrixDescState();
+  JoiningRequestsState createState() => JoiningRequestsState();
 }
 
-class DramatrixDescState extends State<DramatrixDesc> {
+class JoiningRequestsState extends State<JoiningRequests> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +18,15 @@ class DramatrixDescState extends State<DramatrixDesc> {
           backgroundColor: Colors.lightBlueAccent,
           title: const Text('VNR CONNECT'),
           centerTitle: true,
+          leading: TextButton.icon(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.white,
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+            ),
+            icon: Icon(Icons.menu),
+            label: Text(""),
+            onPressed: () {},
+          ),
           actions: [
             TextButton.icon(
               style: TextButton.styleFrom(

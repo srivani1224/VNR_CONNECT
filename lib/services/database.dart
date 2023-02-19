@@ -14,18 +14,9 @@ class DataBase {
         });
   }
 
-  Future<int> countHeads(String clubName) {
+  Stream getHeads(String clubName) {
     return FirebaseFirestore.instance
         .collection("/Clubs/Creative Arts/Heads")
-        .snapshots()
-        .length;
-  }
-
-  Stream<List<Head>> getHeads(String clubName) {
-    return FirebaseFirestore.instance
-        .collection("/Clubs/Creative Arts/Heads")
-        .snapshots()
-        .map((snapshot) =>
-            snapshot.docs.map((doc) => Head.fromJson(doc.data())).toList());
+        .snapshots();
   }
 }

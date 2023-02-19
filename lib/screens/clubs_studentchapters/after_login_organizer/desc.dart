@@ -1,22 +1,24 @@
-// ignore_for_file: prefer_const_constructors, avoid_print
+// ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_events.dart';
-import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_heads.dart';
-import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_joining_requests.dart';
-import 'package:vnr_connect/screens/clubs/creative_arts/creative_arts_members.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/events.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/heads.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/joining_requests.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/members.dart';
 
-class CreativeArtsViewHead extends StatefulWidget {
-  const CreativeArtsViewHead({super.key});
+class Desc extends StatefulWidget {
+  final String path;
+  const Desc(this.path, {super.key});
 
   @override
-  CreativeArtsViewHeadState createState() => CreativeArtsViewHeadState();
+  DescState createState() => DescState();
 }
 
-class CreativeArtsViewHeadState extends State<CreativeArtsViewHead> {
+class DescState extends State<Desc> {
+  String get path => widget.path;
   @override
   Widget build(BuildContext context) {
-    print("view head");
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.lightBlueAccent,
@@ -59,8 +61,7 @@ class CreativeArtsViewHeadState extends State<CreativeArtsViewHead> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const CreativeArtsEvents()),
+                  MaterialPageRoute(builder: (context) => Events(path)),
                 );
               },
             ),
@@ -72,8 +73,7 @@ class CreativeArtsViewHeadState extends State<CreativeArtsViewHead> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const CreativeArtsHeads()),
+                  MaterialPageRoute(builder: (context) => Heads(path)),
                 );
               },
             ),
@@ -85,8 +85,7 @@ class CreativeArtsViewHeadState extends State<CreativeArtsViewHead> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const CreativeArtsMembers()),
+                  MaterialPageRoute(builder: (context) => Members(path)),
                 );
               },
             ),
@@ -99,8 +98,7 @@ class CreativeArtsViewHeadState extends State<CreativeArtsViewHead> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          const CreativeArtsJoiningRequests()),
+                      builder: (context) => JoiningRequests(path)),
                 );
               },
             ),
