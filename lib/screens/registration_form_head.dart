@@ -75,9 +75,8 @@ class RegistrationFormHeadState extends State<RegistrationFormHead> {
                         color: Colors.white,
                       ))),
             ]),
-        body: SizedBox(
-          width: 570,
-          //margin: EdgeInsets.symmetric(horizontal: 400, vertical: 100),
+        body: Padding(
+          padding: EdgeInsets.fromLTRB(50, 30, 50, 30),
           child: Form(
             key: _registrationFormHeadKey,
             child: Column(children: <Widget>[
@@ -100,7 +99,7 @@ class RegistrationFormHeadState extends State<RegistrationFormHead> {
                     labelText: 'Password'),
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(20, 40, 20, 10),
+                padding: EdgeInsets.fromLTRB(0, 40, 0, 10),
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Select Clubs, Student Chapters, Fests that you want to be head :",

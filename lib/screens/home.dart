@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_vnr_student/home_clubs.dart';
 import 'package:vnr_connect/screens/fests.dart';
-import 'package:vnr_connect/screens/login_intro.dart';
-import 'package:vnr_connect/screens/registration_intro.dart';
+import '../services/authenticate.dart';
+import 'login_form.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -29,29 +29,20 @@ class HomeState extends State<Home> {
           title: const Text('VNR CONNECT'),
           centerTitle: true,
           actions: [
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const RegistrationIntro()),
-                  );
-                },
-                child: Text("Register",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ))),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginIntro()),
-                  );
-                },
-                child: Text("Login",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ))),
+            TextButton.icon(
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
+              icon: Icon(Icons.logout),
+              label: Text("Logout"),
+              onPressed: () async {
+                await AuthService().signOut();
+                if (!mounted) return;
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => LoginForm()),
+                    (Route route) => false);
+              },
+            ),
           ]),
       body: Center(
         child: Container(
