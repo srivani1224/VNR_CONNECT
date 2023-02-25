@@ -119,7 +119,7 @@ class PastEventsState extends State<PastEvents> {
               children: <Widget>[
                 StreamBuilder<QuerySnapshot>(
                   stream: FirebaseFirestore.instance
-                      .collection(path + "/Events")
+                      .collection("$path/Events")
                       .snapshots(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
@@ -139,88 +139,103 @@ class PastEventsState extends State<PastEvents> {
                               },
                               child: Center(
                                 child: Container(
+                                  color: Colors.lightBlueAccent,
+                                  margin: EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 5),
                                   alignment: Alignment.center,
                                   child: SingleChildScrollView(
                                     child: Column(
                                       children: <Widget>[
                                         Container(
                                           color: Colors.lightBlueAccent,
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 10, vertical: 5),
-                                          height: 100,
                                           child: Center(
                                               child: Text(snapshot
                                                   .data!.docs[index]
-                                                  .get('Name'))),
+                                                  .get('About_Event'))),
                                         ),
-                                        Container(
-                                          alignment: Alignment.bottomRight,
-                                          child: TextButton(
-                                            style: TextButton.styleFrom(
-                                              backgroundColor:
-                                                  Colors.lightBlueAccent,
-                                            ),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        ViewEvent(
-                                                            path,
-                                                            snapshot.data!
-                                                                .docs[index])),
-                                              );
-                                            },
-                                            child: Text(
-                                              "View",
-                                              style: TextStyle(
-                                                color: Colors.white,
+                                        SingleChildScrollView(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: <Widget>[
+                                              Container(
+                                                alignment:
+                                                    Alignment.bottomRight,
+                                                child: TextButton(
+                                                  style: TextButton.styleFrom(
+                                                    backgroundColor:
+                                                        Colors.lightBlueAccent,
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              ViewEvent(
+                                                                  path,
+                                                                  snapshot.data!
+                                                                          .docs[
+                                                                      index])),
+                                                    );
+                                                  },
+                                                  child: Text(
+                                                    "View",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
                                               ),
-                                            ),
+                                              Container(
+                                                alignment:
+                                                    Alignment.bottomRight,
+                                                child: TextButton(
+                                                  style: TextButton.styleFrom(
+                                                    backgroundColor:
+                                                        Colors.lightBlueAccent,
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              EditEvent(
+                                                                  path,
+                                                                  snapshot.data!
+                                                                          .docs[
+                                                                      index])),
+                                                    );
+                                                  },
+                                                  child: Text(
+                                                    "Edit",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                alignment:
+                                                    Alignment.bottomRight,
+                                                child: TextButton(
+                                                  style: TextButton.styleFrom(
+                                                    backgroundColor:
+                                                        Colors.lightBlueAccent,
+                                                  ),
+                                                  onPressed: null,
+                                                  child: Text(
+                                                    "Remove",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                        Container(
-                                          alignment: Alignment.bottomRight,
-                                          child: TextButton(
-                                            style: TextButton.styleFrom(
-                                              backgroundColor:
-                                                  Colors.lightBlueAccent,
-                                            ),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        EditEvent(
-                                                            path,
-                                                            snapshot.data!
-                                                                .docs[index])),
-                                              );
-                                            },
-                                            child: Text(
-                                              "Edit",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.bottomRight,
-                                          child: TextButton(
-                                            style: TextButton.styleFrom(
-                                              backgroundColor:
-                                                  Colors.lightBlueAccent,
-                                            ),
-                                            onPressed: null,
-                                            child: Text(
-                                              "Remove",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        )
                                       ],
                                     ),
                                   ),

@@ -13,7 +13,7 @@ class ProviderClub {
         return Desc("Clubs/Crescendo");
 
       case "CreativeArtsDesc":
-        return Desc("Clubs/CreativeArts");
+        return Desc("Clubs/Creative Arts");
 
       case "VJTeatroDesc":
         return Desc("Clubs/VJTeatro");

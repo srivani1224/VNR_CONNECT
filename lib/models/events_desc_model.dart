@@ -9,7 +9,7 @@ class EventDesc {
   late String Venue;
   late int Members_In_Team;
   late int Registration_Fee;
-  late Url Registration_Link;
+  late String Registration_Link;
   late String Guests;
   late String Winners;
 
