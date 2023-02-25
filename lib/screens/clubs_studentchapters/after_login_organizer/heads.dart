@@ -113,7 +113,7 @@ class HeadsState extends State<Heads> {
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
-            .collection("Clubs/CreativeArts/vjteatro")
+            .collection("Clubs/CreativeArts/Heads/")
             .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
