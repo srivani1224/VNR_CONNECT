@@ -2,10 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:vnr_connect/models/heads_model.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/add_event.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/edit_event.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/future_events.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/heads.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/ongoing_events.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/view_event.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/view_joining_requests.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_vnr_student/home_clubs.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/desc.dart';
-import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/events.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/past_events.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/joining_requests.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/members.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/view_head.dart';
@@ -111,38 +117,66 @@ class EventsState extends State<Events> {
           ],
         ),
       ),
-      body: StreamBuilder<QuerySnapshot>(
-        stream:
-            FirebaseFirestore.instance.collection(path + "/Events").snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: snapshot.data!.docs.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                ViewHead(path, snapshot.data!.docs[index])),
-                      );
-                    },
-                    child: Container(
+      body: Center(
+        child: Container(
+          alignment: Alignment.center,
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PastEvents(path)),
+                    );
+                  },
+                  child: Card(
                       color: Colors.lightBlueAccent,
-                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      height: 100,
-                      child: Center(
-                          child: Text(snapshot.data!.docs[index].get('Name'))),
-                    ),
-                  );
-                });
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        },
+                      margin: EdgeInsets.all(20),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 100, vertical: 40),
+                        child: Text("Past Events"),
+                      )),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => OngoingEvents(path)),
+                    );
+                  },
+                  child: Card(
+                      color: Colors.lightBlueAccent,
+                      margin: EdgeInsets.all(20),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 90, vertical: 40),
+                        child: Text("Ongoing Events"),
+                      )),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FutureEvents(path)),
+                    );
+                  },
+                  child: Card(
+                      color: Colors.lightBlueAccent,
+                      margin: EdgeInsets.all(20),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 127, vertical: 40),
+                        child: Text("Upcoming Events"),
+                      )),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

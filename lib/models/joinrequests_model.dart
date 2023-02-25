@@ -7,6 +7,7 @@ class JoinRequests {
   late String Department;
   late String Email_Id;
   late String Contact_Number;
+  late String Club_Requirement_Based_Questions;
 
   JoinRequests(
       {required this.Name,
@@ -14,5 +15,6 @@ class JoinRequests {
       required this.Year,
       required this.Department,
       required this.Email_Id,
-      required this.Contact_Number});
+      required this.Contact_Number,
+      required this.Club_Requirement_Based_Questions});
 }

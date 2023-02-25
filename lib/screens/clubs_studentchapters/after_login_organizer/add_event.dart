@@ -9,16 +9,16 @@ import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/joining_requests.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/members.dart';
 
-class ViewEvent extends StatefulWidget {
-  final QueryDocumentSnapshot<Object?> s;
+class AddEvent extends StatefulWidget {
   final String path;
-  const ViewEvent(this.path, this.s, {super.key});
+  const AddEvent(this.path, {super.key});
 
   @override
-  ViewEventState createState() => ViewEventState();
+  AddEventState createState() => AddEventState();
 }
 
-class ViewEventState extends State<ViewEvent> {
+class AddEventState extends State<AddEvent> {
+  final _addEventFormHeadKey = GlobalKey<FormState>();
   String get path => widget.path;
   @override
   Widget build(BuildContext context) {
@@ -108,99 +108,49 @@ class ViewEventState extends State<ViewEvent> {
             ],
           ),
         ),
-        body: Center(
-          child: ListView(
-            padding: const EdgeInsets.fromLTRB(50, 60, 50, 80),
-            children: <Widget>[
-              SizedBox(
-                height: 30,
-                child: Text(
-                  "About_Event : " + widget.s.get('About_Event'),
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
+        body: Padding(
+          padding: EdgeInsets.fromLTRB(50, 30, 50, 30),
+          child: Form(
+            key: _addEventFormHeadKey,
+            child: Column(children: <Widget>[
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'About Event'),
+              ),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Timings'),
+              ),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Venue'),
+              ),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Members_In_Team'),
+              ),
+              TextFormField(
+                decoration:
+                    const InputDecoration(labelText: 'Registration_Fee'),
+              ),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Guests'),
+              ),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Winners'),
+              ),
+              Container(
+                margin: EdgeInsets.all(20),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.lightBlueAccent,
+                  ),
+                  onPressed: null,
+                  child: Text(
+                    "save",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Text(
-                  "Timings : " + widget.s.get('Timings'),
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Text(
-                  "Venue : " + widget.s.get('Venue'),
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Text(
-                  "Members_In_Team : " + widget.s.get('Members_In_Team'),
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Text(
-                  "Registration_Fee : " + widget.s.get('Registration_Fee'),
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Text(
-                  "Guests : " + widget.s.get('Guests'),
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Text(
-                  "Winners : " + widget.s.get('Winners'),
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Text(
-                  "Registration_Link : " + widget.s.get('Registration_Link'),
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
+              )
+            ]),
           ),
         ));
   }

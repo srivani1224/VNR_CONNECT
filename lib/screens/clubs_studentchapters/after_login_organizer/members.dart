@@ -2,10 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:vnr_connect/models/heads_model.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/events.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/heads.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/view_event.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/view_member.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_vnr_student/home_clubs.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/desc.dart';
-import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/events.dart';
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/past_events.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/joining_requests.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/members.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/view_head.dart';
@@ -128,15 +131,65 @@ class MembersState extends State<Members> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                ViewHead(path, snapshot.data!.docs[index])),
+                                ViewMember(path, snapshot.data!.docs[index])),
                       );
                     },
-                    child: Container(
-                      color: Colors.lightBlueAccent,
-                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      height: 100,
-                      child: Center(
-                          child: Text(snapshot.data!.docs[index].get('Name'))),
+                    child: Center(
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                color: Colors.lightBlueAccent,
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 5),
+                                height: 100,
+                                child: Center(
+                                    child: Text(snapshot.data!.docs[index]
+                                        .get('Name'))),
+                              ),
+                              Container(
+                                alignment: Alignment.bottomRight,
+                                child: TextButton(
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.lightBlueAccent,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ViewMember(path,
+                                              snapshot.data!.docs[index])),
+                                    );
+                                  },
+                                  child: Text(
+                                    "View",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.bottomRight,
+                                child: TextButton(
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.lightBlueAccent,
+                                  ),
+                                  onPressed: null,
+                                  child: Text(
+                                    "Remove",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   );
                 });

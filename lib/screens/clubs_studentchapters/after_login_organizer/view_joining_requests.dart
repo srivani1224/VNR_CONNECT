@@ -9,16 +9,16 @@ import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/joining_requests.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/members.dart';
 
-class ViewEvent extends StatefulWidget {
+class ViewJoiningRequests extends StatefulWidget {
   final QueryDocumentSnapshot<Object?> s;
   final String path;
-  const ViewEvent(this.path, this.s, {super.key});
+  const ViewJoiningRequests(this.path, this.s, {super.key});
 
   @override
-  ViewEventState createState() => ViewEventState();
+  ViewJoiningRequestsState createState() => ViewJoiningRequestsState();
 }
 
-class ViewEventState extends State<ViewEvent> {
+class ViewJoiningRequestsState extends State<ViewJoiningRequests> {
   String get path => widget.path;
   @override
   Widget build(BuildContext context) {
@@ -200,6 +200,36 @@ class ViewEventState extends State<ViewEvent> {
                   ),
                 ),
               ),
+              Container(
+                alignment: Alignment.bottomLeft,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.lightBlueAccent,
+                  ),
+                  onPressed: null,
+                  child: Text(
+                    "Accept",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                alignment: Alignment.bottomRight,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.lightBlueAccent,
+                  ),
+                  onPressed: null,
+                  child: Text(
+                    "Reject",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ));

@@ -2,8 +2,9 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/events.dart';
+
+import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/past_events.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/heads.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/joining_requests.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/members.dart';
