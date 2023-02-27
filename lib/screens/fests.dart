@@ -13,7 +13,7 @@ class _FestsState extends State<Fests> {
   List<Fest> festsData = [
     Fest(
         festName: "Sinti",
-        festYear: "2k22",
+        festYear: "2K22",
         festImage:
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg"),
     Fest(
@@ -23,17 +23,17 @@ class _FestsState extends State<Fests> {
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg"),
     Fest(
         festName: "Sinti",
-        festYear: "2k20",
+        festYear: "2K20",
         festImage:
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg"),
     Fest(
         festName: "Sinti",
-        festYear: "2k19",
+        festYear: "2K19",
         festImage:
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg"),
     Fest(
         festName: "Sinti",
-        festYear: "2k18",
+        festYear: "2K18",
         festImage:
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg")
   ];
@@ -72,9 +72,7 @@ class _FestsState extends State<Fests> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => IndividualFest(
-                            fest: fest,
-                          )),
+                      builder: (context) =>IndividualFest(fest: fest)),
                 );
               },
               style: TextButton.styleFrom(
