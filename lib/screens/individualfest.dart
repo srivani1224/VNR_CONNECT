@@ -7,23 +7,22 @@ class IndividualFest extends StatelessWidget {
   const IndividualFest({super.key, required this.fest});
   @override
   Widget build(BuildContext context) {
+    String collectionName = fest.festName+fest.festYear;
     return Scaffold(
       appBar: AppBar(
         title: Text("${fest.festName}  ${fest.festYear}"),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-          child: Center(
-            child: Column(
-              children: [
-                const Text("Descrption goes here"),
-                const SizedBox(
-                  height: 10,
-                ),
-                Events()
-              ],
-            ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+        child: Center(
+          child: Column(
+            children: [
+              const Text("Descrption goes here"),
+              const SizedBox(
+                height: 10,
+              ),
+              Flexible(child: Events(collection: collectionName,))
+            ],
           ),
         ),
       ),

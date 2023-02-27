@@ -18,7 +18,8 @@ Future<bool> registerWithEmailAndPass(registerEmail,registerPassword) async{
     password: registerPassword
   );
 
- 
+//  User? user = FirebaseAuth.instance.currentUser;
+//       String? uid = user?.uid;
 
   print(userCredential);
 
