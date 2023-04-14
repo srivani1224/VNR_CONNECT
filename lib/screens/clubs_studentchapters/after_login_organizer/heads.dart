@@ -1,15 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:vnr_connect/models/heads_model.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/events.dart';
-import 'package:vnr_connect/screens/clubs_studentchapters/after_login_vnr_student/home_clubs.dart';
-import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/desc.dart';
-import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/past_events.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/joining_requests.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/members.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_organizer/view_head.dart';
-import 'package:vnr_connect/services/database.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 

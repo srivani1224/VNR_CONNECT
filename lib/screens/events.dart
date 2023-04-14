@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'package:vnr_connect/models/fests_model.dart';
-import 'package:vnr_connect/screens/Individualevent.dart';
+import 'package:vnr_connect/screens/events_in_a_year.dart';
 
 class Events extends StatefulWidget {
   final String collection;
-  const Events({super.key,required this.collection});
-  
+  const Events({super.key, required this.collection});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -18,7 +17,6 @@ class _EventsState extends State<Events> {
 
   @override
   Widget build(BuildContext context) {
-    
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: StreamBuilder<QuerySnapshot>(
@@ -31,8 +29,7 @@ class _EventsState extends State<Events> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
-          if(snapshot.data?.size==0)
-          {
+          if (snapshot.data?.size == 0) {
             return const Center(child: Text("No data found"));
           }
           return ListView.builder(
@@ -40,6 +37,7 @@ class _EventsState extends State<Events> {
             itemBuilder: (BuildContext context, int index) {
               DocumentSnapshot document = snapshot.data!.docs[index];
               return Card(
+                elevation: 5.0,
                 child: Padding(
                   padding: const EdgeInsets.all(5.0),
                   child: Column(
@@ -47,42 +45,34 @@ class _EventsState extends State<Events> {
                       Image(
                           image: NetworkImage((document.data()
                               as Map<String, dynamic>)['eventImageUrls'][0])),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        (document.data() as Map<String, dynamic>)['eventName'],
-                        style: const TextStyle(fontSize: 40, color: Colors.red),
-                      ),
-                      const SizedBox(
-                        height: 6,
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Text(
+                          (document.data()
+                              as Map<String, dynamic>)['eventName'],
+                          style: const TextStyle(color: Colors.red),
+                        ),
                       ),
                       Text(
                         (document.data() as Map<String, dynamic>)['venue'],
-                        style: const TextStyle(
-                            fontSize: 30, color: Colors.redAccent),
+                        style: const TextStyle(color: Colors.redAccent),
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                         List<dynamic> details = (document.data()
-                                  as Map<String, dynamic>)['heads'] ?? [];
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                            
-                                builder: (context) =>  EventDetails(alldocs: details,doc: document,)),
-                          );
-                        },
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.deepOrange[400],
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const NewEvents(collection: "Sinti2K19",selectedYear: "2023",),
+                                ));
+                          },
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.deepOrange[400],
+                          ),
+                          child: const Text("View"),
                         ),
-                        child: const Text("View"),
-                      ),
-                      const SizedBox(
-                        height: 20,
                       ),
                     ],
                   ),
