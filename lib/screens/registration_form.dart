@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:vnr_connect/screens/email_verification.dart';
 import 'package:vnr_connect/screens/login_intro.dart';
 import 'package:vnr_connect/screens/registration_intro.dart';
 import 'package:vnr_connect/services/authenticate.dart';
-import 'package:vnr_connect/screens/home.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
@@ -105,14 +105,20 @@ class RegistrationFormState extends State<RegistrationForm> {
                       onPressed: () async {
                         dynamic result = await AuthService()
                             .registerWithEmailAndPass(
-                                email.text, password.text);
+                               "", email.text, password.text);
+
                         if (result) {
                           if (!mounted) return;
-                          Navigator.of(context).pop();
-                          Navigator.push(
-                              context,
+                          // Navigator.of(context).pop();
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const EmailVerificationScreen()));
+
+                          Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
-                                  builder: (context) => const Home()));
+                                  builder: (context) => EmailVerificationScreen()),
+                              (Route route) => false);
                         } else {
                           if (!mounted) return;
                           createDialogBox(context);

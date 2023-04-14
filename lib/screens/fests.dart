@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:vnr_connect/models/fests_model.dart';
+import 'package:vnr_connect/needed/app_theme.dart';
 import 'package:vnr_connect/screens/individualfest.dart';
 
 class Fests extends StatefulWidget {
@@ -12,28 +13,33 @@ class Fests extends StatefulWidget {
 class _FestsState extends State<Fests> {
   List<Fest> festsData = [
     Fest(
-        festName: "Sinti",
-        festYear: "2K22",
+        festName: "Fests",
+        festYear: "2023",
         festImage:
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg"),
     Fest(
-        festName: "Sinti",
-        festYear: "2k21",
+        festName: "Fests",
+        festYear: "2022",
         festImage:
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg"),
     Fest(
-        festName: "Sinti",
-        festYear: "2K20",
+        festName: "Fests",
+        festYear: "2021",
         festImage:
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg"),
     Fest(
-        festName: "Sinti",
-        festYear: "2K19",
+        festName: "Fests",
+        festYear: "2020",
         festImage:
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg"),
     Fest(
-        festName: "Sinti",
-        festYear: "2K18",
+        festName: "Fests",
+        festYear: "2019",
+        festImage:
+            "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg"),
+    Fest(
+        festName: "Fests",
+        festYear: "2018",
         festImage:
             "https://thumbs.dreamstime.com/b/audience-hands-air-music-festival-59879684.jpg")
   ];
@@ -72,7 +78,7 @@ class _FestsState extends State<Fests> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>IndividualFest(fest: fest)),
+                      builder: (context) => IndividualFest(fest: fest)),
                 );
               },
               style: TextButton.styleFrom(
@@ -91,9 +97,15 @@ class _FestsState extends State<Fests> {
 
   @override
   Widget build(BuildContext context) {
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool isLightMode = brightness == Brightness.light;
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Sinti"),
+          title:  Text("Fests",
+          style: TextStyle(color: isLightMode?Colors.black:Colors.white),
+          ),
+          backgroundColor:
+              isLightMode == true ? AppTheme.white : AppTheme.nearlyBlack,
         ),
         body: SingleChildScrollView(
           child: Center(

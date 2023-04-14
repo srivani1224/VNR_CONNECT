@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return MaterialApp(
+              debugShowCheckedModeBanner: false,
               home: Scaffold(
                   appBar: AppBar(
                 title: const Text("VNR CONNECT"),
@@ -35,7 +36,9 @@ class MyApp extends StatelessWidget {
 
           return const MaterialApp(
             title: 'vnr connect',
-            home: LoginForm(),
+            home:LoginForm(),
+           
+          // AnimatedLogin(),
           );
         });
   }

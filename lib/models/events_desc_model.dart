@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 // ignore: avoid_web_libraries_in_flutter
-import 'dart:html';
 
 class EventDesc {
   late String About_Event;

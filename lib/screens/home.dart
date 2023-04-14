@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vnr_connect/screens/clubs_studentchapters/after_login_vnr_student/home_clubs.dart';
 import 'package:vnr_connect/screens/fests.dart';
+import 'package:vnr_connect/screens/navigationScreen.dart';
 import '../services/authenticate.dart';
 import 'login_form.dart';
 
@@ -21,6 +23,9 @@ final List<String> imgList = [
 ];
 
 class HomeState extends State<Home> {
+FirebaseAuth auth = FirebaseAuth.instance;
+@override
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +49,9 @@ class HomeState extends State<Home> {
               },
             ),
           ]),
+          drawer: Drawer(
+        child: NavigationPage()
+      ),
       body: Center(
         child: Container(
           alignment: Alignment.center,
