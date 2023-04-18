@@ -1,10 +1,11 @@
 # VNR CONNECT
 
-A new Flutter project.
+VNR CONNECT is a Mobile Application to manage different college activities like fest activities,clubs and their activities.
 
 ## Getting Started
 
-VNR CONNECT is a Mobile Application to manage different college activities like fest activities,clubs and their activities.
+To build this application first you need install flutter into your local system.
+Then you can follow the following steps to use the application.
 
 ## How to Use
 **Step 1:**
