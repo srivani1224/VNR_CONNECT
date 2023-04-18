@@ -19,9 +19,9 @@ samples, guidance on mobile development, and a full API reference.
 ## Step 1:
 
 Download or clone this repo by using the link below:
-
+```
 https://github.com/srivani1224/VNR_CONNECT.git
-
+```
 
 ## Step 2:
 
