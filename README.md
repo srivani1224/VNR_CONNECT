@@ -31,3 +31,5 @@ Execute following command to build the application
 ```
 flutter run
 ```
+
+It will take sometime to build and soon you'll the application loading in your mobile.
