@@ -1,16 +1,35 @@
-# vnr_connect
+# VNR CONNECT
 
-A new Flutter project.
+VNR CONNECT is a Mobile Application to manage different college activities like fest activities,clubs and their activities.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To build this application first you need install flutter into your local system.
+Then you can follow the following steps to use the application.
 
-A few resources to get you started if this is your first Flutter project:
+## How to Use
+**Step 1:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Download or clone this repo by using the link below:
+```
+https://github.com/srivani1224/VNR_CONNECT.git
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Step 2:**
+
+Go to project root and execute the following command in console to get the required dependencies:
+```
+flutter pub get 
+```
+**Step 4:**
+
+Connect any mobile using USB and make sure you on USB debugging in devloper options
+
+**Step 5:**
+
+Execute following command to build the application
+```
+flutter run
+```
+
+It will take sometime to build and soon you'll the application loading in your mobile.
